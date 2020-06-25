@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is the client</h1>    
+</body>
+</html>
+<script>
+// Create the web socket and bind it to the localhost
+let connection = new WebSocket("ws://localhost:8080");
+
+/*
+The WebSocket supports 3 event-handlers ( for the network-binding ) :
+    -> onopen
+    -> onerror
+    -> onclose
+*/
+
+connection.onopen = function(e){
+    console.log("Verbindung  veröffnet");
+
+    // With the method send you can send messages to the server.
+    connection.send("Hello from the client to the server");
+
+    let message = {};
+    connection.send(JSON.stringify(message));
+}
+
+connection.onerror = function(error){
+    console.log("WebSocket Error");
+    console.log(error);
+}
+
+connection.onclose = function(e){
+    console.log("Verbindung geschlossen");
+}
+
+connection.onmessage = function({data}){
+    console.log(data);
+}
+</script>
