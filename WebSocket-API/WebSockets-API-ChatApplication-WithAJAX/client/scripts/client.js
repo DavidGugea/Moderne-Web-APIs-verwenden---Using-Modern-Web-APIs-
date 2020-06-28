@@ -74,8 +74,6 @@ function login(event){
             // Get the username & node_id from the user
             let username = document.getElementById("username").value;
             let node_id = document.getElementById("password").value;
-            console.log(username);
-            console.log(node_id);
             let user;
 
             // Search for the user
@@ -156,8 +154,6 @@ function login(event){
                     (event) => {
                         if(event.key == "Enter"){
                             if(input.value.trim()){
-                                console.log(`Sent text -- > ${input.value.trim()}`);
-
                                 // Send the user message to the web-socket server using the 'connection' variable.
                                 let messageSent = `${user.login} : ${input.value.trim()}`; // Send the message to the server with the username in the front 
                                 connection.send(messageSent);

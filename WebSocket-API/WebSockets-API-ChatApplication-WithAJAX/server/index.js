@@ -13,11 +13,11 @@ WebSocketServer.on("connection", (socket, request) => {
 
     // Message event listener
     socket.on("message", (userMessage) => {
-        console.log(userMessage); // The user will
-        
         // Send the message that we got back to ALL client-sockets
         WebSocketServer.clients.forEach((client) => {
+            // If the client is opened
             if(client.readyState == WebSocket.OPEN){
+                // Send the message to the client
                 client.send(userMessage);
             }
         })
