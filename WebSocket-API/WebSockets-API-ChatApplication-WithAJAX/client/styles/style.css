@@ -1,0 +1,146 @@
+/* 
+COLOR SCHEME:
+https://coolors.co/e63946-f1faee-a8dadc-457b9d-1d3557
+*/
+*{
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Pangolin', cursive;
+}
+
+body{
+    display: block;
+
+    width: 100%;
+}
+
+/* LOGIN SECTION */
+section#log-section{
+    display: block;
+
+    margin: auto;
+    text-align: center;
+
+    margin-top: 15%;
+
+    width: 75%;
+    height: 75%;
+}
+h1#title{
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+h1#title:hover{
+    color: #A8DADC;
+    transition: all 1500ms;
+}
+form#login-form{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+
+    padding: 20px;
+    width: 25%;
+
+    text-align: center;
+    margin: auto;
+}
+form#login-form input, form#login-form button, .logoutButton, .userInputSendText, .userInputSendText {
+    background-color: #1D3557;
+    color: white;
+    padding: 10px;
+
+    border: 5px solid #A8DADC;
+    border-radius: 35px;
+    margin-bottom: 15px;
+
+    font-size: 15px;
+}
+form#login-form input:hover, form#login-form button:hover, .logoutButton:hover, .userInputSendText:hover, .userInputSendText:hover{
+    background-color: #F1FAEE;
+    color: #000000;
+    border: 5px solid #457B9D;
+
+    transition: all 1500ms;
+}
+.userInputSendText{
+    margin-right: 50px;
+    width: 300px;
+}
+/* LOGIN SECTION */
+
+/* FOR THE CANVAS CIRCLES * ANIMATION * */
+canvas#firstCircleCanvasAnimation{
+    display: block;
+    z-index: -1;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+
+    width: 50%;
+    height: 100vh;
+}
+canvas#secondCircleCanvasAnimation{
+    display: block;
+    z-index: -1;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+
+    width: 50%;
+    height: 100vh;
+}
+/* FOR THE CANVAS CIRCLES * ANIMATION * */
+
+/* users section classes */
+
+.seeUser{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    margin: 0 auto;
+    text-align: center;
+    padding: 25px;
+
+    position: absolute;
+    top: 0%;
+    left: 15%;
+    right: 15%;
+    bottom: 100%;
+
+    margin: auto;
+}
+.userAvatar{
+    width: 250px;
+    height: 250px;
+
+    margin-bottom: 50px;
+}
+
+/* users section classes */
+
+.hideChatSection, .hideLogin{
+    display: none;
+}
+section#chat-app{
+    border: 2px #333333 solid;
+    overflow: scroll;
+
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 15%;
+
+    max-width: 1000px;
+    min-width: 1000px;
+    max-height: 400px;
+    min-height: 400px;
+
+    margin: auto;
+    text-align: left;
+}
+section#chat-app:hover{
+    border: 2px #1D3557 solid;
+    transition: all 2500ms;
+}
