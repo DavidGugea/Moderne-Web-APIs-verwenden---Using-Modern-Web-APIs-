@@ -1,0 +1,8 @@
+/* used for jquery-intellisense inside another .js file */
+{
+    "typeAcquisition": {
+        "include": [
+            "jquery"
+        ]
+    }
+}
