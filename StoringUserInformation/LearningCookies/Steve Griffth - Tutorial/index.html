@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learning Cookies</title>
+    <style>
+        div#output{
+            width: 300px;
+            height: 300px;
+
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="output"></div> 
+
+    <button id="btnAdd">Add a cookie</button>
+    <button id="btnDel">Remove a cookie</button>
+    <button id="btnFind">Check for a cookie</button>
+</body>
+</html>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("div").addEventListener("click", (ev) => {
+        // display the current cookie and display it in the output div
+        if(document.cookie){
+            document.getElementById("output").textContent = document.cookie;
+        }else{
+            document.getElementById("output").textContent = "No cookies currently";
+        }
+
+        console.log(document.cookie.split(";"));
+    });
+
+    document.getElementById("btnAdd").addEventListener("click", (ev) => {
+        // set a cookie
+        let key = "theme";
+        let value = encodeURIComponent("pink"); // avoid special chars
+        let thirty = 60 * 60 * 24 * 30;
+        document.cookie = `${key} = ${value};path=/;max-age=${thirty};`; // one cookie at a time
+
+        let x = new Date();
+        x.setHours(x.getHours() + 5);
+        document.cookie = `score=9238749234;path=/;expires=${x};max-age=${thirty}`;
+        // theme = gold ; score 10923873 ; trackid = AB3453453DF;
+        /**
+        ;path = absolute path. current path by default.
+        ;domain = sub.example.com current domain by default.
+        ;max-age = seconds 60 * 60 * 24*30  30 days
+        ;expires = UTC date. end of current session by default
+        ;secure = true
+        ;same-site = Strict | Lax
+        **/
+    });
+
+    document.getElementById("btnDel").addEventListener("click", (ev) => {
+        // delete a cookie
+        let key = "theme";
+        let thirty = 60 * 60 * 24 * 30;
+        document.cookie = `${key}=;path=/;expires=${new Date()}`;
+    });
+
+    document.getElementById("btnFind").addEventListener("click", (ev) => {
+        // find if a cookie exists
+        let key = 'score';
+        let val = ''; 
+        if(document.cookie.split(';').filter((value) => {
+            return value.trim().startsWith(`${key}=`)
+        }).length != 0 ) {
+            // cookie that starts with key= exists
+            document.getElementById("output").textContent = "score key is found";
+            ev.stopPropagation();
+        }else{
+            document.getElementById("output").textContent = "score key is not found";
+            ev.stopPropagation();
+        }
+    });
+});
+</script>
