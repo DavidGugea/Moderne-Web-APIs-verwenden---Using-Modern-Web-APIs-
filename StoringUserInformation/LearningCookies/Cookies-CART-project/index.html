@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <!-- CSS file -->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- Google-font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="login-section">
+        <h1 id="login-title">Welcome !</h1>
+
+        <!-- Classic form ( the user will have to register using one of the accounts from the github-users API https://api.github.com/users that we will fetch later with javascript -->
+        <form method="GET" id="login-form">
+            <input type="text" name="username" id="username" placeholder="Username">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="submit" value="Login" id="login-button" placeholder="Login">
+        </form>
+
+        <!-- Canvas elements for animations ( properties will be set to absolute and will have the z-index lowered-->
+        <canvas class="animation-canvas" id="login-section-canvas-animation-top_left"></canvas>
+        <canvas class="animation-canvas" id="login-section-canvas-animation-top_right"></canvas>
+        <canvas class="animation-canvas" id="login-section-canvas-animation-bottom_left"></canvas>
+        <canvas class="animation-canvas" id="login-section-canvas-animation-bottom_right"></canvas>
+    </section>
+    <section id="user-section">
+        <!-- Buy - section -- > The section where the user selects what he wants to buy and the amount and can save everything-->
+        <section id="buy-section">
+            <h1 id="buy-section-title">Buy Section</h1>
+
+            <div id="products">
+                <div class="product" data-target-id=1>
+                    <p class="product-title">Apple</p>
+                    <img src="images/Apple.jpg" alt="Apple" class="product-image">
+                    <p class="product-price">3 $/kg</p>
+                    <input type="number" name="apple-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id=2>
+                    <p class="product-title">Cherries</p>
+                    <img src="images/Cherry.jpg" alt="Cherry" class="product-image">
+                    <p class="product-price">4 $/kg</p>
+                    <input type="number" name="cherry-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id=3>
+                    <p class="product-title">Chocolate</p>
+                    <img src="images/Chocolate.jpg" alt="Chocolate" class="product-image">
+                    <p class="product-price">5 $</p>
+                    <input type="number" name="chocoloate-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id=4>
+                    <p class="product-title">Cookies</p>
+                    <img src="images/Cookie.jpg" alt="Cookies" class="product-image">
+                    <p class="product-price">2 $</p>
+                    <input type="number" name="cookies-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id=5>
+                    <p class="product-title">Lemons</p>
+                    <img src="images/Lemon.jpg" alt="Lemon" class="product-image">
+                    <p class="product-price">1 $/kg</p>
+                    <input type="number" name="lemon-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id=6>
+                    <p class="product-title">Milk</p>
+                    <img src="images/Milk.jpg" alt="Milk" class="product-image">
+                    <p class="product-price">3 $</p>
+                    <input type="number" name="milk-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id=7>
+                    <p class="product-title">Oatmeal</p>
+                    <img src="images/Oatmeal.jpg" alt="Oatmeal" class="product-image">
+                    <p class="product-price">4 $</p>
+                    <input type="number" name="oatmeal-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id=8>
+                    <p class="product-title">Orange</p>
+                    <img src="images/Orange.jpg" alt="Orange" class="product-image">
+                    <p class="product-price">8 $/kg</p>
+                    <input type="number" name="orange-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id=9>
+                    <p class="product-title">Strawberry</p>
+                    <img src="images/Strawberry.jpg" alt="Strawberry" class="product-image">
+                    <p class="product-price">10 $/kg</p>
+                    <input type="number" name="strawberry-amount" class="product-amount" placeholder="Amount">
+                </div>
+            </div>
+
+            <button id="userAddSection-btn" class="addDelete_btn">Add</button>
+        </section>
+        <!-- UserProducts - section -- > The section where the user can see what products he bought, the price of them, the amount and he can select what products he would like to delete from his list and what to keep -->
+        <section id="userProducts-section">
+            <h1 id="userProducts-section-title">My Products</h1>
+
+            <div id="user-products-introduction">
+                <p class="numberOfProducts">Number of products : 0</p>
+                <p class="priceOfProducts">Price: 0$</p>
+            </div>
+
+            <div id="user-products"></div>
+            <button id="userDeleteBuySection-btn" class="addDelete_btn">Delete</button>
+        </section>
+
+        <button id="user-section-logout-button">Log Out</button>
+    </section>
+</html>
+<script src="scripts/script.js"></script>

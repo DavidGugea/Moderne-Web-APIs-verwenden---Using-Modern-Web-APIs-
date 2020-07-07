@@ -1,0 +1,301 @@
+/*
+COLOR SCHEME:
+* #F291A3
+* #D991B3
+* #8F9AD9
+* #7386BF
+* #F2B1A2
+
+source -- > https://color.adobe.com/explore?page=2
+
+*/
+*{
+    font-family: 'Pangolin', cursive;
+
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* Avoid horizontal scroll */
+    display: block;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100vh;
+}
+
+/* LOGIN-SECTION *** EVERYTHING *** */
+
+/* Putting the login-section in the middle of the page */
+section#login-section{
+    display: block;
+
+    width: 100%;
+    height: 100vh;
+    
+    margin: 0 auto;
+    text-align: center;
+
+    margin-top: 15%;
+}
+
+/* Make the title bigger and give it a color */
+h1#login-title{
+    font-size: 75px;
+    margin-bottom: 30px;  
+
+    color: #025E73;
+}
+h1#login-title:hover{
+    color: #024959;
+
+    transition: all 5000ms;
+}
+
+/* Style the form ( input & bottom + structure of the form using the GRID-system ) */
+form#login-form{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    grid-row-gap: 10px;
+
+    height: 175px;
+    width: 300px;
+
+    margin: 0 auto;
+    text-align: center;
+}
+
+input:required:valid, input:required:focus{ /* when the user-input that is required has been filled up */
+    border: 2px solid rgb(124, 238, 124);
+}
+input#username, input#password, input#login-button{
+    background-color: #8F9AD9;
+    color: #F2B1A2;
+    border: 5px solid #D991B3;
+
+    text-align: center;
+    border-radius: 30px;
+
+    font-size: 15px;
+
+    padding: 10px;
+}
+input#username:hover, input#password:hover, input#login-button:hover{
+    background-color: #D991B3;
+    border: 5px solid #8F9AD9;
+
+    transition: all 3500ms;
+}
+
+/* Set up the canvases, all of them *MUST* be absolute so we can move them around */
+canvas.animation-canvas{
+    position: absolute;
+
+    width: 45%;
+    height: 45%;
+
+    z-index: -1;
+}
+
+canvas#login-section-canvas-animation-top_left{
+    top: 0;
+    left: 0;
+}
+canvas#login-section-canvas-animation-top_right{
+    top: 0;
+    right: 0;
+}
+canvas#login-section-canvas-animation-bottom_left{
+    bottom: 0;
+    left: 0;
+}
+canvas#login-section-canvas-animation-bottom_right{
+    bottom: 0;
+    right: 0;
+}
+
+/* LOGIN-SECTION *** EVERYTHING *** */
+
+/* USER - SECTION *** EVERYTHING *** */
+
+/* By default, the user is not logged in, so by default, the user-section won't be displayed on the screen */
+section#user-section{
+    display: none;
+
+    width: 100%;
+}
+
+/* Buy - section -- > The section where the user selects what he wants to buy and the amount and can save everything */
+section#buy-section{
+    width: 90%;
+
+    margin: 0 auto;
+}
+
+/* Buy section *TITLE* */ 
+h1#buy-section-title{
+    font-size: 75px;
+    color: #F291A3;
+}
+h1#buy-section-title:hover{
+    color: #D991B3;
+
+    transition: all 2500ms;
+}
+
+/* Products - div */
+div#products{
+    display: grid;
+    /* We have 9 items so we will have a ( 3 by 3 ) grid ( 3 columns & 3 rows */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 100px;
+
+    /* Adjust the width & margins of the products-section */
+    width: 75%;
+    margin: 0 auto;
+
+    margin-top: 50px;
+}
+
+/* Product - div ******* each product - div */
+div.product{
+    margin: 0 auto;
+    text-align: center;
+
+    padding: 10px;
+}
+div.product > *{
+    width: 200px;
+
+    margin-bottom: 0;
+    margin-top: 0;
+}
+p.product-title{
+    height: 30px;
+
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+img.product-image{
+    height: 200px;
+}
+p.product-price{
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+input.product-amount, p.product-amount{
+    background-color: #ffffff;
+    color: #8F9AD9;
+    border: 2px solid #8F9AD9; 
+
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+}
+input.product-amount:hover, p.product-amount:hover{
+    background-color: #8F9AD9;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+
+    transition: all 5000ms;
+}
+/* Product - div ******* each product - div */
+
+/* Buy-section buttons */
+button.addDelete_btn, button#user-section-logout-button{
+    width: 200px;
+    height: 50px;
+
+    padding: 10px;
+    text-align: center;
+
+    font-size: 20px;
+
+    margin: 50px 0 50px 15px;
+}
+
+button#userAddSection-btn{
+    background-color: rgb(124, 238, 124);
+    border: none;
+    color: #ffffff;
+}
+button#userAddSection-btn:hover{
+    background-color: #ffffff;
+    color: rgb(124, 238, 124);
+    border: 4px solid rgb(124, 238, 124);
+
+    transition: all 3000ms;
+}
+
+
+/* USER PRODUCTS - SECTION */
+section#userProducts-section{
+    width: 90%;
+
+    margin: 0 auto;
+    margin-top: 50px;
+}
+h1#userProducts-section-title{
+    font-size: 75px;
+    color: #F291A3;
+}
+h1#userProducts-section-title:hover{
+    color: #D991B3;
+
+    transition: all 2500ms;
+}
+
+div#user-products-introduction{
+    margin-bottom: 50px;
+}
+p#numberOfProducts, p#priceOfProducts{
+    font-size: 20px;
+    color: #8F9AD9;
+}
+
+button#user-section-logout-button{
+    background-color: #7386BF;
+    border: none;
+    color: #ffffff;
+
+    margin-left: 15px;
+}
+button#user-section-logout-button:hover{
+    background-color: #ffffff;
+    color: #7386BF;
+    border: 5px solid #7386BF;
+
+    transition: all 3000ms;
+}
+
+div#user-products{
+    display: grid;
+    /* We have 9 items so we will have a ( 3 by 3 ) grid ( 3 columns & 3 rows */
+    grid-template-columns: repeat(3, 1fr);
+
+    /* Adjust the width & margins of the products-section */
+    width: 75%;
+    margin: 0 auto;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+button#userDeleteBuySection-btn{
+    background-color: #D991B3;
+    border: none;
+    color: #ffffff;
+}
+button#userDeleteBuySection-btn:hover{
+    background-color: #ffffff;
+    color: #D991B3;
+    border: 4px solid #D991B3;
+
+    transition: all 3000ms;
+}
+/* USER - SECTION *** EVERYTHING *** */
