@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies - Cart - Project</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="animation-canvas"></canvas>
+
+    <!-- login-section -->
+    <section id="login-section">
+        <h1 id="login-title">Log In</h1>
+
+        <div id="login-inputs">
+            <input type="text" name="username" id="username" placeholder = "Username" value="mojombo"> <!-- DELETE VALUE AFTER DONE WITH PROJECT, IT'S ONLY FOR TESTING -->
+            <input type="password" name="password" id="password" placeholder="Password" value="MDQ6VXNlcjE="> <!-- DELETE VALUE AFTER DONE WITH PROJECT, IT'S ONLY FOR TESTING -->
+            <button id="login-button" type="submit">Log In</button>
+        </div>
+    </section>
+    <!-- The user-section is where the user buys & deletes items from his cart -->
+    <section id="user-section"> 
+        <!-- Add to cart - section -->
+        <section id="buy-section">
+            <h1 id="buy-section-title">Buy Section</h1>
+
+            <div id="products">
+                <div class="product" data-target-id="1" data-target-selected="false">
+                    <h2 class="product-title">Apple</h2>
+                    <img src="images/Apple.jpg" alt="Apple" class="product-image">
+                    <p class="product-price">3 $/kg</p>
+                    <input type="number" name="product-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id="2" data-target-selected="false">
+                    <h2 class="product-title">Cherry</h2>
+                    <img src="images/Cherry.jpg" alt="Cherry" class="product-image">
+                    <p class="product-price">5 $/kg</p>
+                    <input type="number" name="product-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id="3" data-target-selected="false">
+                    <h2 class="product-title">Chocolate</h2>
+                    <img src="images/Chocolate.jpg" alt="Chocolate" class="product-image">
+                    <p class="product-price">2 $</p>
+                    <input type="number" name="product-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id="4" data-target-selected="false">
+                    <h2 class="product-title">Cookie</h2>
+                    <img src="images/Cookie.jpg" alt="Cookie" class="product-image">
+                    <p class="product-price">7 $</p>
+                    <input type="number" name="product-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id="5" data-target-selected="false">
+                    <h2 class="product-title">Lemon</h2>
+                    <img src="images/Lemon.jpg" alt="Lemon" class="product-image">
+                    <p class="product-price">10 $/kg</p>
+                    <input type="number" name="product-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id="6" data-target-selected="false">
+                    <h2 class="product-title">Milk</h2>
+                    <img src="images/Milk.jpg" alt="Milk" class="product-image">
+                    <p class="product-price">15 $</p>
+                    <input type="number" name="product-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id="7" data-target-selected="false">
+                    <h2 class="product-title">Oatmeal</h2>
+                    <img src="images/Oatmeal.jpg" alt="Oatmeal" class="product-image">
+                    <p class="product-price">15 $</p>
+                    <input type="number" name="product-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id="8" data-target-selected="false">
+                    <h2 class="product-title">Orange</h2>
+                    <img src="images/Orange.jpg" alt="Orange" class="product-image">
+                    <p class="product-price">20 $/kg</p>
+                    <input type="number" name="product-amount" class="product-amount" placeholder="Amount">
+                </div>
+                <div class="product" data-target-id="9" data-target-selected="false">
+                    <h2 class="product-title">Strawberry</h2>
+                    <img src="images/Strawberry.jpg" alt="Strawberry" class="product-image">
+                    <p class="product-price">12 $/kg</p>
+                    <input type="number" name="product-amount" class="product-amount" placeholder="Amount">
+                </div>
+            </div>
+
+            <button id="addButton">Add to cart</button>
+        </section>
+        <!-- Delete from cart - section -->
+        <section id="delete-section">
+            <h1 id="delete-section-title">Delete Section</h1>
+
+            <div id="delete_products_info">
+                <p id="total-products-price">Total price of products : 0 $</p>
+                <p id="total-products-amount">Total amount of products : 0</p>
+            </div>
+
+            <!-- Insert items & further event listeners using javascript ( & cookies ) -->
+            <div id="delete_products"></div>
+
+            <button id="deleteButton">Delete from cart</button>
+        </section>
+
+        <!-- Log Out Button-->
+        <button id="logout_button">Log Out</button>
+    </section>
+</body>
+</html>
+<script src="scripts/script.js"></script>
