@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+// Set new items inside the local-storage
+window.localStorage.setItem("firstname", "Max");
+window.localStorage.setItem("lastname", "Mustermann");
+
+// window.sessionStorage.setItem("firstname", "Max");
+// window.sessionStorage.setItem("lastname", "Mustermann");
+
+let user = {
+    firstname : "Max",
+    lastname : "Mustermann"
+}
+window.localStorage.setItem(
+    'user',
+    JSON.stringify(user)
+);
+
+// Getting values 
+let firstname = window.localStorage.getItem("firstname");
+let lastname = window.localStorage.getItem("lastname");
+
+console.log(firstname);
+console.log(lastname);
+
+// Getting objects from local-storage
+let user_lS = window.localStorage.getItem("user");
+user_lS = JSON.parse(user_lS);
+console.log(user_lS);
+console.log(user_lS.firstname);
+console.log(user_lS.lastname);
+
+// Updating values
+window.localStorage.setItem("firstname", "Moritz");
+window.localStorage.setItem("lastname", "Peterson");
+firstname = window.localStorage.getItem("firstname");
+lastname= window.localStorage.getItem("lastname");
+
+console.log(firstname);
+console.log(lastname);
+
+// Deleting items from the local-storage
+window.localStorage.removeItem("firstname");
+window.localStorage.removeItem("lastname");
+
+firstname = window.localStorage.getItem("firstname");
+lastname= window.localStorage.getItem("lastname");
+
+console.log(firstname);
+console.log(lastname);
+
+</script>
