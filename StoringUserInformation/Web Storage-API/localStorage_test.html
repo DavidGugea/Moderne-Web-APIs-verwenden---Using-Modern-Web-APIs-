@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/*
+localStorage-data never expires but the sessionStorage expires after the tab is closed
+*/
+// Adding to the local-Storage
+// window.localStorage.setItem("firstname", "test_1");
+// window.localStorage.setItem("secondname", "test_1");
+
+// Updating values of the local-Storage
+window.localStorage.setItem("firstname", "updated firstname");
+window.localStorage.setItem("secondname", "updated secondname");
+
+// Getting values from the localStorage
+let x = window.localStorage.getItem("firstname");
+console.log(x);
+let y = window.localStorage.getItem("secondname");
+console.log(y);
+
+// Getting keys from the localStorage at a specific index
+let z = window.localStorage.key(0);
+console.log(z);
+let a = window.localStorage.key(1);
+console.log(a);
+
+// Removing items from the localStorage
+window.localStorage.removeItem("firstname");
+let test_firstname = window.localStorage.getItem("firstname");
+console.log(test_firstname);
+</script>
