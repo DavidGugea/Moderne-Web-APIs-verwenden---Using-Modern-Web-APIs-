@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+window.addEventListener("storage", (event) => {
+    console.log(event.key); // The key that has a changed value
+    console.log(event.oldValue); // The old value of the key
+    console.log(event.newValue); // The new value of the key
+    console.log(event.url); // The url of the document
+    console.log(event.storageArea); // The storage-object that was changed
+});
+
+// window.localStorage.setItem("firstname", "a");
+window.localStorage.setItem("firstname", "b");
+window.localStorage.setItem("firstname", "c");
+</script>
