@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>DB</p>
+    <input type="text" value="notes" id="txtDB"> 
+    <input type="number" value="1" id="txtVersion">
+    <button id="btnCreateDB">Create DB</button>
+    <button id="addNote">Add Note</button>
+</body>
+</html>
+<script>
+const btnCreateDB = document.getElementById("btnCreateDB");
+btnCreateDB.addEventListener(
+    "click",
+    createDB 
+);
+
+function createDB(){
+    const dbName = document.getElementById("txtDB").value;
+    const dbVersion = document.getElementById("txtVersion").value;
+
+    const request = indexedDB.open(dbName, dbVersion);
+
+    // on upgrade needed
+    request.onupgradeneeded = e => {
+        const db = e.target.result;
+        /* 
+            note = {
+                title : "note1",
+                text : "this is a note"
+            }
+        */
+        const pNotes = db.createObjectStore("personalNotes", { keyPath : "title" });
+        const todoNotes = db.createObjectStore("todo_notes", { keyPath : "title" });
+
+        alert(`update is called ${db.name} version ${db.version}`);
+    };
+
+    // on success
+    request.onsuccess = e => {
+        const db = e.target.result;
+
+        alert(`success is called ${db.name} version ${db.version}`);
+    };
+
+    // on error
+    request.onerror = e => {
+        alert(`error ! "${e.target.error}" was found`);
+    };
+}
+</script>
