@@ -10,15 +10,70 @@
     <input type="text" value="notes" id="txtDB"> 
     <input type="number" value="1" id="txtVersion">
     <button id="btnCreateDB">Create DB</button>
-    <button id="addNote">Add Note</button>
+    <button id="btnAddNote">Add Note</button>
+    <button id="viewNotes">View Notes</button> 
 </body>
 </html>
 <script>
+let db;
+
 const btnCreateDB = document.getElementById("btnCreateDB");
+const btnAddNote = document.getElementById("btnAddNote");
+const btnViewNotes = document.getElementById("viewNotes");
+
 btnCreateDB.addEventListener(
     "click",
     createDB 
 );
+btnAddNote.addEventListener(
+    "click",
+    addNote
+)
+btnViewNotes.addEventListener(
+    "click",
+    viewNotes
+)
+
+function viewNotes(){
+    const tx = db.transaction("personal_notes", "readonly");
+    const pNotes = tx.objectStore("personal_notes");
+
+    console.log(pNotes);
+
+    const request = pNotes.openCursor();
+    request.onsuccess = e => {
+        const cursor = e.target.result;
+
+        if(cursor){
+            alert(`Note : ${cursor.value.title} | Value : ${cursor.value.text}`);
+
+            // do something with the cursor
+            cursor.continue();
+
+             
+        }
+    }
+}
+
+
+function addNote(){
+    const note = {
+        title: "note1" + Math.random(),
+        text: "This is my note" 
+    };
+    
+    // Build the transaction
+    console.log(db);
+    const tx = db.transaction("personal_notes", "readwrite");
+
+    tx.onerror = e => alert(`Error. ${e.target.error}`);
+
+    // Get the store
+    const pNotes = tx.objectStore("personal_notes");
+
+    // Add to the store
+    pNotes.add(note);
+}
 
 function createDB(){
     const dbName = document.getElementById("txtDB").value;
@@ -28,14 +83,14 @@ function createDB(){
 
     // on upgrade needed
     request.onupgradeneeded = e => {
-        const db = e.target.result;
+        db = e.target.result;
         /* 
             note = {
                 title : "note1",
                 text : "this is a note"
             }
         */
-        const pNotes = db.createObjectStore("personalNotes", { keyPath : "title" });
+        const pNotes = db.createObjectStore("personal_notes", { keyPath : "title" });
         const todoNotes = db.createObjectStore("todo_notes", { keyPath : "title" });
 
         alert(`update is called ${db.name} version ${db.version}`);
@@ -43,7 +98,7 @@ function createDB(){
 
     // on success
     request.onsuccess = e => {
-        const db = e.target.result;
+        db = e.target.result;
 
         alert(`success is called ${db.name} version ${db.version}`);
     };
