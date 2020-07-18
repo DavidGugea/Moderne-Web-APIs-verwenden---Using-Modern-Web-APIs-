@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD-Project with IDB-API</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main id="CRUD-PROJECT">
+        <h1 id="title">CRUD-PROJECT</h1>
+
+        <section id="inputs">
+            <input type="text" id="productName" placeholder="Product Name">
+            <input type="number" id="productAmount" placeholder="Product Amount">
+            <input type="number" id="productPrice" placeholder="Product Price">
+            <input type="number" id="productID" placeholder="Product ID">
+        </section>
+
+        <button id="btnCreate">Create</button>
+
+        <table id="products">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Amount</th>
+            </thead>
+            <tbody>
+                <tr id="userProduct">
+                    <td class="productID">892347095234785</td>
+                    <td class="productName">My Product Name</td>
+                    <td class="productPrice">34958345</td>
+                    <td class="productAmount">39485</td>
+                    <td class="productUpdate">
+                        <img src="images/update.jpeg" alt="Update Icon" class="productUpdateIcon">
+                    </td>
+                    <td class="productDelete">
+                        <img src="images/delete.png" alt="Delete Icon" class="productDeleteIcon">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
+<script src="scripts/script.js"></script>
