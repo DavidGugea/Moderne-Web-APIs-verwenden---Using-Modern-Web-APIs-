@@ -97,7 +97,9 @@ section#inputs > input{
     padding: 5px;
     font-size: 15px;
 
-    border-radius: 15px;
+    border-radius: 5px;
+    border: 0;
+
     margin: auto;
 
     color: #F06B80;
@@ -110,6 +112,16 @@ section#inputs > input:hover{
     border-radius: 5px;
 
     transition: all 4500ms;
+}
+
+/* Don't make the spin button transparent ( add opacity of 1 so the user can see it and so that at the hover effect won't impact the width & height & padding of the entire parent-element */
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+}
+input.inputInUse{
+    padding: 5px;
+    margin: 5px;
+    border: 5px solid;
 }
 
 button#btnCreate{
@@ -138,6 +150,7 @@ table#products{
 
     margin: 0 auto;
     margin-top: 7.5%;
+    margin-bottom: 2.5%;
 
     text-align: center;
 }
@@ -166,5 +179,16 @@ img.productUpdateIcon:hover{
 img.productDeleteIcon:hover{
     border: 3px solid #89495F;
 }
+
+tbody input{
+    text-align: center;
+    color: #F06B80;
+    font-size: 15px;
+}
+tbody td:nth-child(odd) input{
+    background-color: #58384D;
+    color: #F06B80;
+}
+
 
 /* TABLE */
