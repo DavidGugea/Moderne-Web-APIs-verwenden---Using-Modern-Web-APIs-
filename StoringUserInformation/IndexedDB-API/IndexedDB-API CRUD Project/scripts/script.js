@@ -48,6 +48,23 @@ const manageDB = {
                 }
             }
         }
+    },
+    updateDB : function(product_ID, input_element){
+        let request = window.indexedDB.open("USER_PRODUCTS_IDB", 1);
+        request.onsuccess = e => {
+            let db = request.result;
+            let transaction = db.transaction("PRODUCTS", "readwrite");
+            let objectStore = transaction.objectStore("PRODUCTS");
+
+            // Get the current value 
+            let value = objectStore.get(product_ID);
+
+            value.onsuccess = e => {
+                let modifyProperty = input_element.parentElement.classList.toString().split(" ")[0].trim();
+                eval(`e.target.result.${modifyProperty} = input_element.value`);
+                objectStore.put(e.target.result);
+            }
+        }
     }
 }
 
@@ -68,12 +85,12 @@ const manageUserTable = {
 
         /* PRODUCT_ID */
         let productID_td = document.createElement("td");
-        productID_td.setAttribute("class", "productID");
+        productID_td.setAttribute("class", "product_ID");
         productID_td.textContent = product_ID;
 
         /* PRODUCT_NAME */
         let productName_td = document.createElement("td");
-        productName_td.setAttribute("class", "productName");
+        productName_td.setAttribute("class", "product_name");
 
         let productName_disabled_input = document.createElement("input");
         productName_disabled_input.setAttribute("disabled", new String());
@@ -83,7 +100,7 @@ const manageUserTable = {
 
         /* PRODUCT_PRICE */
         let productPrice_td = document.createElement("td");
-        productPrice_td.setAttribute("class", "productPrice");
+        productPrice_td.setAttribute("class", "product_price");
 
         let productPrice_disabled_input = document.createElement("input");
         productPrice_disabled_input.setAttribute("disabled", new String());
@@ -93,7 +110,7 @@ const manageUserTable = {
 
         /* PRODUCT_AMOUNT */
         let productAmount_td = document.createElement("td");
-        productAmount_td.setAttribute("class", "productAmount");
+        productAmount_td.setAttribute("class", "product_amount");
 
         let productAmount_disabled_input = document.createElement("input");
         productAmount_disabled_input.setAttribute("disabled", new String());
@@ -157,18 +174,22 @@ const manageUserTable = {
             if(!input.classList.contains("inputInUse")){
                 input.removeAttribute("disabled");
                 input.classList.add("inputInUse");
-                input.setAttribute("type", "number");
+                // Only if the input parent ( the <td> ( table data ) ) doesn't represent the product name
+                if(!input.parentElement.classList.contains("product_name")){
+                    input.setAttribute("type", "number");
+                }
 
                 input.addEventListener(
                     "keypress",
                     (event) => {
                         if(event.key == "Enter"){
-                            console.log(event.target.value);
-
                             // Toggle disabled attribute & remove class & change type to text
                             input.setAttribute("disabled", new String());
                             input.classList.remove("inputInUse");
                             input.setAttribute("type", "text");
+
+                            // Update the object store with a new value
+                            manageDB.updateDB(product_ID, event.target);
                         }
                     }
                 )
@@ -180,7 +201,7 @@ const manageUserTable = {
         });
     },
     userDeleteItem: function(product_ID){
-
+        console.log(product_ID);
     }
 }
 

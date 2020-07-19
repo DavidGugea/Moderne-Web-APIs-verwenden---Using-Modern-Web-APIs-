@@ -158,7 +158,7 @@ table#products thead th{
     font-size: 17.5px;
     padding: 7.5px;
 }
-thead th:nth-child(odd), td.productID, td.productPrice{
+thead th:nth-child(odd), td.product_ID, td.product_price{
     background-color: #58384D;
     color: #F06B80;
 }
