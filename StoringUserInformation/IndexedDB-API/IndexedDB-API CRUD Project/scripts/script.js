@@ -65,6 +65,18 @@ const manageDB = {
                 objectStore.put(e.target.result);
             }
         }
+    },
+    deleteFromDB : function(product_ID){
+        let request = window.indexedDB.open("USER_PRODUCTS_IDB", 1);
+
+        request.onsuccess = e => {
+            let db = e.target.result;
+            let transaction = db.transaction("PRODUCTS", "readwrite");
+            let objectStore = transaction.objectStore("PRODUCTS");
+
+            // Delete the item with the given product_ID
+            objectStore.delete(product_ID);
+        }
     }
 }
 
@@ -201,7 +213,17 @@ const manageUserTable = {
         });
     },
     userDeleteItem: function(product_ID){
-        console.log(product_ID);
+        if(typeof product_ID == 'string'){
+            // Delete the tr from the table body that has the given ID
+            let tbody = document.querySelector("tbody");
+            let tr = document.querySelector(`tr[data-target-id='${product_ID}']`);
+
+            console.log(tr);
+            tbody.removeChild(tr);
+
+            // Delete it from the DB
+            manageDB.deleteFromDB(product_ID);
+        }
     }
 }
 
@@ -218,15 +240,18 @@ document.addEventListener(
 
         db.onsuccess = e => {
             let idb = e.target.result;
-            let transaction = idb.transaction("PRODUCTS", "readonly");
-            let objectStore = transaction.objectStore("PRODUCTS");
-            let objectStore_request = objectStore.getAll();
+            // Make sure the db has object stores ( is not empty )
+            if(idb.objectStoreNames.length != 0){
+                let transaction = idb.transaction("PRODUCTS", "readonly");
+                let objectStore = transaction.objectStore("PRODUCTS");
+                let objectStore_request = objectStore.getAll();
 
-            objectStore_request.onsuccess = e => {
-                if(objectStore_request.readyState == "done"){
-                    e.target.result.forEach((obj) => {
-                        manageUserTable.addProduct(obj.product_name, obj.product_amount, obj.product_price, obj.product_ID);
-                    });
+                objectStore_request.onsuccess = e => {
+                    if(objectStore_request.readyState == "done"){
+                        e.target.result.forEach((obj) => {
+                            manageUserTable.addProduct(obj.product_name, obj.product_amount, obj.product_price, obj.product_ID);
+                        });
+                    }
                 }
             }
         }
