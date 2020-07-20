@@ -218,7 +218,6 @@ const manageUserTable = {
             let tbody = document.querySelector("tbody");
             let tr = document.querySelector(`tr[data-target-id='${product_ID}']`);
 
-            console.log(tr);
             tbody.removeChild(tr);
 
             // Delete it from the DB
@@ -296,7 +295,6 @@ document.querySelector("section#userHelp img").addEventListener(
     "click",
     function(event){
         let userInfo = document.getElementById("userInfo");
-        console.log(userInfo.style.display.trim() == "");
 
         // Toggle display 
         switch(userInfo.style.display.trim()){
