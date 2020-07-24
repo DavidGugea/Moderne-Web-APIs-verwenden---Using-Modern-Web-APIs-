@@ -1,0 +1,29 @@
+body{
+    background-color: darksalmon;
+    overflow: hidden;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    width: 750px;
+    margin: 0 auto;
+}
+section.box{
+    border: 2px solid black;
+    margin: 5px 5px;
+    height: 160px;
+    padding: 5px;
+}
+img#dragImage{
+    cursor: pointer;
+    position: relative;
+}
+
+.hidden{
+    display: none;
+}
+.dashed{
+    border: 5px #ccc dashed;
+}
