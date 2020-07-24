@@ -1,0 +1,32 @@
+body{
+    background-color: darksalmon;
+    overflow-x: hidden;
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    width: 800px;
+    margin: 0 auto;
+
+    margin: 3px #ccc solid;
+}
+section.box{
+    border: 3px #ccc solid;
+    padding: 5px;
+
+    height: 160px;
+
+    margin: 5px 5px;
+}
+img{
+    cursor: pointer;
+    position: relative;
+}
+
+.hidden{
+    display: none;
+}
+.hold{
+    border: 4px #f4f4f4 solid;
+}
