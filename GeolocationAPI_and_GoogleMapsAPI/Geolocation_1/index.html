@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation API</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+}
+
+function successCallback(position){
+    console.dir(position);
+    console.log(position.coords.accuracy);
+}
+function errorCallback(error){
+    console.error(error);
+}
+</script>
