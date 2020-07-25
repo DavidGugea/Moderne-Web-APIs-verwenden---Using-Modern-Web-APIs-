@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre id="output"></pre>
+    <input type="text" id="sendMessageToWorker">
+</body>
+</html>
+<script>
+let output = document.getElementById("output");
+let input = document.getElementById("sendMessageToWorker");
+var worker;
+
+document.addEventListener(
+    "DOMContentLoaded",
+    init
+);
+
+
+function init(DOM_LOADED_EVENT){
+    let worker = new Worker("worker.js");
+    worker.addEventListener("message", WORKER_MESSAGED);
+    worker.addEventListener("error", WORKER_ERROR);
+
+    function WORKER_MESSAGED(ev){
+        let data = ev.data;
+        output.innerHTML += data;
+    }
+    function WORKER_ERROR(ev){
+        console.error(ev.message, ev.filename);
+    }
+
+    input.addEventListener("keypress", (event) => {
+        if(event.key == "Enter"){
+            sendWorkerMessage(event.target.value);
+        }
+    });
+    function sendWorkerMessage(message){
+        worker.postMessage(message);
+    }
+}
+</script>
