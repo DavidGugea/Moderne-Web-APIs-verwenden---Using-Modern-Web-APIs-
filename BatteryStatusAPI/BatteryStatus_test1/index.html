@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="charge"></p> 
+    <p id="charging-time"></p>
+    <p id="discharging-time"></p>
+    <p id="battery-level"></p>
+</body>
+</html>
+<script>
+function displayBatteryStatus(battery){
+    // A Boolean value indicating whether or not the battery is currently being charged.
+    document.getElementById("charge").innerHTML = (battery.charging) ? "Ja" : "Nein";
+
+    // A number representing the remaining time in seconds until the battery is fully charged, or 0 if the battery is already fully charged.
+    document.getElementById("charging-time").innerHTML = battery.chargingTime; // 0 
+
+    // A number representing the remaining time in seconds until the battery is completely discharged and the system will suspend.
+    document.getElementById("discharging-time").innerHTML = battery.dischargingTime;
+
+    // A number representing the system's battery charge level scaled to a value between 0.0 and 1.0. 
+    document.getElementById("battery-level").innerHTML = battery.level;
+}
+
+navigator.getBattery().then(function(battery){
+    displayBatteryStatus(battery);
+});
+</script>
