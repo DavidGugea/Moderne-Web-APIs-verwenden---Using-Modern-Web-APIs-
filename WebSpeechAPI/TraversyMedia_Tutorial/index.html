@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type-N-Speak</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="center">
+            <img src="images/speech.png" alt="Logo">
+            <form>
+                <textarea id="text-input" cols="30" rows="10"></textarea>
+                <div class="group">
+                    <label for="rate">Rate</label>
+                    <div id="rate-value">1</div>
+                    <input type="range" id="rate" class="custom-range" min="0.5" max="2" value="1" step="0.1">
+                </div>
+                <div class="group">
+                    <label for="pitch">Pitch</label>
+                    <div id="pitch-value">1</div>
+                    <input type="range" id="pitch" class="custom-pitch" min="0" max="2" value="1" step="0.1">
+                </div>
+                <div class="group">
+                    <select id="voice-select"></select>
+                </div>
+
+                <button>Speak It</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script src="scripts/script.js"></script>
