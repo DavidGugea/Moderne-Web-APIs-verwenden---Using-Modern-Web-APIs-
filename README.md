@@ -7,7 +7,7 @@ APIs learnt in this chapther of the book:
 - File API
 - Drag and Drop API
 - Web Worker API
-- Geolocation API
+- Geolocation API & Google Maps API
 - Battery Status API
 - Web Speech API
 - Web Animation API
