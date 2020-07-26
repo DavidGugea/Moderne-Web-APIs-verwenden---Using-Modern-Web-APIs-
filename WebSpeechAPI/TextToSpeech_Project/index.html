@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text To Speech</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <h1 id="title">Text To Speech Recognition</h1>
+    <div id="inputs">
+        <textarea name="userText" id="userText" placeholder="User text"></textarea>
+
+        <div id="ranges">
+            <div class="range">
+                <p id="rangeDisplay"></p>
+                <input type="range" id="rate" min="0" max="1" step="0.1">
+            </div>
+            <div class="pitch">
+                <p id="pitchDisplay"></p>
+                <input type="range" id="pitch" min="0" max="1" step="0.1">
+            </div>
+        </div>
+
+        <select id="voices-select"></select><br>
+
+        <button id="textToSpeech">Text To Speech</button>
+    </div>
+</body>
+</html>
+<script src="scripts/script.js"></script>
