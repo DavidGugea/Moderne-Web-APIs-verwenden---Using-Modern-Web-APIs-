@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="charge"></p> 
+    <p id="charging-time"></p>
+    <p id="discharging-time"></p>
+    <p id="battery-level"></p>
+</body>
+</html>
+<script>
+if(navigator.getBattery){
+    function displayBatteryStatus(battery){
+        document.getElementById("charge").innerHTML = (battery.charging ? "It's charging" : "It's not charging");
+        document.getElementById("charging-time").innerHTML = `Charging time ( 0 if the battery is fully charged ) : ${battery.chargingTime}`;
+        document.getElementById("discharging-time").innerHTML = `Discharging time : ${battery.dischargingTime}`;
+        document.getElementById("battery-level").innerHTML = `Battery level: ${battery.level}`;
+    }
+    function chargingChangeHandler(event){
+        console.log("chargingchange");
+        displayBatteryStatus(event.target);
+    }
+    function chargingTimeChangeHandler(event){
+        console.log("chargintimechange");
+        displayBatteryStatus(event.target);
+    }
+    function dischargingTimeChangeHandler(event){
+        console.log("dischargingtimechange");
+        displayBatteryStatus(event.target);
+    }
+    function levelChangeHandler(event){
+        console.log("levelchange");
+        displayBatteryStatus(event.target);
+    }
+
+    navigator.getBattery().then((battery) => {
+        console.dir(battery);
+        battery.addEventListener("chargingchange", chargingChangeHandler);
+        battery.addEventListener("chargintimechange", chargingTimeChangeHandler);
+        battery.addEventListener("dischargingtimechange", dischargingTimeChangeHandler);
+        battery.addEventListener("levelchange", levelChangeHandler);
+    });
+}
+</script>
