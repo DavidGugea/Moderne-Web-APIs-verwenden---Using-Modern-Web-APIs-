@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="speak">Speak</button> 
+</body>
+</html>
+<script>
+let recognition = new window.webkitSpeechRecognition();
+recognition.continue = true;
+recognition.lang = 'de';
+
+recognition.onresult = event => {
+    let results = event.results;
+    let firstResult = results[0];
+    let firstAlternative = firstResult[0];
+    let transcript = firstAlternative.transcript;
+    let confidence = firstAlternative.confidence;
+
+    console.log(transcript);
+    console.log(confidence);
+}
+
+const button = document.getElementById("speak");
+
+button.addEventListener(
+    "click",
+    (event) => {
+        if(event.target.classList.contains("on")){
+            event.target.classList.remove("on");
+            recognition.stop();
+        }else{
+            event.target.classList.add("on");
+            recognition.start();
+        }
+    }
+);
+</script>
