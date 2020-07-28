@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyframes & Animation</title>
+    <style>
+        body{
+            background-color: #333;
+        }
+
+        .box{
+            background-color: white;
+
+            width: 200px;
+            height: 200px;
+
+            position: relative;
+
+            animation-name: myanimation;
+            animation-duration: 4s;
+            animation-iteration-count: 1;
+            /*
+            animation-delay: 2s;
+            animation-direction: alternate;
+            */
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>    
+    <button id="btn-animate">Animate</button>
+</body>
+</html>
+<script src="script.js"></script>
