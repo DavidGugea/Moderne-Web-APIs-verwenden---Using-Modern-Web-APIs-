@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="speak">Speak</button> 
+</body>
+</html>
+<script>
+let utterance = new SpeechSynthesisUtterance();
+utterance.text = "Hallo Welt";
+utterance.lang = "de";
+utterance.volume = 10000;
+utterance.rate = 0.5;
+utterance.pitch = 0.5;
+
+utterance.onstart = event => {
+    console.log("Start der Sprachausgabe");
+}
+
+function speak(){
+    window.speechSynthesis.speak(utterance);
+}
+
+document.getElementById("speak").addEventListener(
+    "click",
+    speak
+);
+</script>
