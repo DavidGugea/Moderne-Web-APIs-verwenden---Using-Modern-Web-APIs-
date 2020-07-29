@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+if(window.Intl && typeof window.Intl === "object"){
+    // const locale = "de_DE";
+    const locale = [
+        "zh-Hant",
+        "en-US",
+        "de-DE"
+    ];
+    const dateTimeFormatGermany = new Intl.DateTimeFormat(locale);
+    const numberFormatGermany = new Intl.NumberFormat(locale);
+    const collatorGermany = new Intl.Collator(locale);
+}else{
+    // Internationalization API wird nicht unterschtutzt
+}
+</script>
