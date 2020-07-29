@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet"></head>
+<body>
+    <section id="log-section">
+        <div id="login-section">
+            <h1 id="title">Log In</h1>
+
+            <form id="login-form">
+
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <button id="loginButton">Log In</button>
+            </form>
+        </div>
+    </section> 
+    <section id="chat-app" class="hideChatSection"></section>
+    <section id="users"></section>
+    <canvas id="firstCircleCanvasAnimation"></canvas>
+    <canvas id="secondCircleCanvasAnimation"></canvas>
+</body>
+</html>
+<script src="scripts/client.js"></script>

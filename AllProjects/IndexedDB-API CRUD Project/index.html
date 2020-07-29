@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD-Project with IDB-API</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="userError">
+        <p id="errorMessage"></p>
+    </section>
+    <section id="userHelp">
+        <!-- This is a section where the user can click the question mark and get information about how to use the program ( product_ID must be unique, how to use the icons in each product in table#products, etc. -->
+        <img src="images/question_mark.png" alt="Question Mark to help the user" id="questionMark">
+        <div id="userInfo">
+            <!-- Here we will write the information that we want the user to read in order to get more information about the project. By default it's display is set to none, but the question mark, if the use chooses to click on it, it will toggle the display ( between none & block ) -->
+            <h2>Info</h2>
+            <ol id="userHelpOL">
+                <li>
+                    The product_ID <strong>must</strong> be unique 
+                </li>
+                <li>
+                    The icon with the little yellow pen means that you can update some of the product properties ( only name, price, amount )
+                </li>
+                <li>
+                    The icon with the little red bin means that you can delete that product
+                </li>
+                <li>
+                    After you have changed a property of a product you <strong>must press the 'Enter'-key on your keyboard</strong> so that it will update
+                </li>
+                <li>
+                    You <strong>can't</strong> update the product_ID, you must delete the entire product in case that you change the product_ID of a specific product and then re-enter the name, price & amount
+                </li>
+            </ol>
+        </div>
+    </section> 
+    <main id="CRUD-PROJECT">
+        <section id="user-section">
+            <h1 id="title">CRUD-PROJECT</h1>
+
+            <section id="inputs">
+                <input type="text" id="productName" placeholder="Product Name">
+                <input type="number" id="productAmount" placeholder="Product Amount">
+                <input type="number" id="productPrice" placeholder="Product Price">
+                <input type="number" id="productID" placeholder="Product ID">
+            </section>
+
+            <button id="btnCreate">Create</button>
+        </section>
+
+        <table id="products">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Amount</th>
+            </thead>
+            <tbody>
+                <!--
+                EXAMPLE OF HOW A PRODUCT *****MUST***** LOOK LIKE
+                <tr class="userProduct" data-target-id='892347095234785'>
+                    <td class="product_ID">892347095234785</td>
+                    <td class="product_name">My Product Name</td>
+                    <td class="product_price">34958345</td>
+                    <td class="product_amount">39485</td>
+                    <td class="productUpdate">
+                        <img src="images/update.jpeg" alt="Update Icon" class="productUpdateIcon">
+                    </td>
+                    <td class="productDelete">
+                        <img src="images/delete.png" alt="Delete Icon" class="productDeleteIcon">
+                    </td>
+                </tr>
+                -->
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
+<script src="scripts/script.js"></script>
