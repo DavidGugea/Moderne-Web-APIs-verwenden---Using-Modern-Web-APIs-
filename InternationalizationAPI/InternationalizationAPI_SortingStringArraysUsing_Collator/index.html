@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+const names = [
+    "Mustermann, Max",
+    "Müller, Max",
+    "Mustermann, Moritz",
+    "Mueller, Moritz",
+    "Meier, Petra",
+    "Meier, Peter"
+];
+
+const nameCollator = new Intl.Collator("de-DE", {
+    usage: "sort",
+});
+console.log(names.sort(nameCollator.compare));
+</script>
