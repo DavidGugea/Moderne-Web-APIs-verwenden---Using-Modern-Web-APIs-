@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+if(window.Intl && typeof window.Intl === "object"){
+    const nameCollator = new window.Intl.Collator("de-DE");
+    const nameCollatorBase = new window.Intl.Collator(
+        "de-DE",
+        {
+            sensitivity: "base"
+        }
+    );
+
+    console.log(nameCollator.compare("Mueller", "mueller")); // 1 
+    console.log(nameCollatorBase.compare("Mueller", "mueller")); // 0 ( the base means that Lower-case & Upper-case letters are treated the same )
+}
+</script>
