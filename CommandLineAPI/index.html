@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Li 1</li>
+            <li>Li 2</li>
+            <li>Li 3</li>
+            <li>Li 4</li>
+            <li>Li 5</li>
+        </ul>
+    </nav> 
+    <div>
+        <li>Li 6</li>
+        <li>Li 7</li>
+        <li>Li 8</li>
+        <li>Li 9</li>
+        <li>Li 10</li>
+    </div>
+    <input type="text">
+
+    <button id="btn">Click</button>
+</body>
+</html>
+<script>
+class Person{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    printDescription(){
+        console.log(`${this.name} is ${this.age} years old`);
+    }
+}
+
+people = [
+    new Person("Person1", 25),
+    new Person("Person2", 26),
+    new Person("Person3", 27),
+    new Person("Person4", 28),
+    new Person("Person5", 29),
+    new Person("Person6", 30),
+]
+
+const input = document.querySelector("input");
+input.addEventListener(
+    "keypress",
+    (event) => {
+    }
+);
+input.addEventListener(
+    "click",
+    (event) => {
+    }
+);
+
+function createPerson(firstName, lastName, age){
+    return {
+        firstName : firstName,
+        lastName : lastName,
+        age : age
+    }
+}
+
+const btn = document.getElementById("btn");
+btn.addEventListener(
+    "click",
+    (event) => {
+        let asd = createPerson("asd", "bcd", 29347);
+        let bcd = createPerson("bcd", "bcd", 29347);
+        let xyz = createPerson("xyz", "bcd", 29347);
+    }
+);
+</script>
